@@ -11,7 +11,7 @@ app.get("/api/bills",(req,resp)=>{
 
 app.get("/api/bills/:id",(req,resp)=>{
     const bill=bills.find(b=>b.id===parseInt(req.params.id));
-    if(!bill) resp.status(404).send('Resource not Found.!');
+    if(!bill) return resp.status(404).send('Resource not Found.!');
     resp.send(bill);
 })
 
@@ -27,14 +27,14 @@ app.post("/api/bills",(req,resp)=>{
 app.put("/api/bills/:id",(req,resp)=>{
     const bill=bills.find(b=>b.id===parseInt(req.params.id));
 
-    if(!bill) resp.status(404).send('Resource not Found.!');
+    if(!bill) return resp.status(404).send('Resource not Found.!');
     bill.amount=req.body.amount
     resp.send(bill)
 })
 
 app.delete("/api/bills/:id",(req,resp)=>{
     const index=bills.findIndex(x=>x.id===parseInt(req.params.id));
+    if(index<0) return resp.status(404).send('Resource not Found.!');
     bills.splice(index,1);
     resp.send(req.params.id);
-    console.log(bills)
 })
