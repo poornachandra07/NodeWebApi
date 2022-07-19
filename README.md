@@ -1,1 +1,4 @@
-# NodeWebApi
+- Commands to run
+  - npm init --yes To create package.json
+  - npm i express
+  - node index.js --to run
