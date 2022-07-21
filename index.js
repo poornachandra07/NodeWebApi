@@ -3,7 +3,10 @@ const app=express()
 var bills=[{id:1, amount: 100},{id:2, amount: 100},{id:3, amount: 100}]
 
 app.listen(5002,()=>{console.log('Listening on port 5002...!')})
+
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+
 
 app.get("/api/bills",(req,resp)=>{
     resp.send(bills);
