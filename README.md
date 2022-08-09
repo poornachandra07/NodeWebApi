@@ -1,4 +1,5 @@
-- npm run server to run in dev mode
+- **npm run server** to run in dev mode
+- **npm run start** to run prod mode
 <hr>
 
 - Object destructuring syntax can be used to directly access property of RHS statement
